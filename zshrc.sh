@@ -10,6 +10,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
     git
     zsh-autosuggestions
+    kubectl
+    encode64
 )
 # reload oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -33,3 +35,13 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=’red’
 
 ### Zsh autocompletion
 source $SCRIPTPATH/zsh_completion.sh
+
+### Zsh autosuggestion
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=yello"
+bindkey '^ ' autosuggest-accept
+bindkey '^[[[CE' autosuggest-execute
+
+### Zsh syntax highlighting
+# brew install zsh-syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

@@ -37,7 +37,6 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=’red’
 source $SCRIPTPATH/zsh_completion.sh
 
 ### Zsh autosuggestion
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=yello"
 bindkey '^ ' autosuggest-accept
 bindkey '^[[[CE' autosuggest-execute
 

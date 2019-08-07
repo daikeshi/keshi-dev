@@ -12,14 +12,29 @@ plugins=(
     zsh-autosuggestions
     kubectl
     encode64
+    virtualenv
 )
 # reload oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 ###  POWERLEVEL9K customized settings
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs virtualenv time)
+
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
+
+POWERLEVEL9K_VIRTUALENV_BACKGROUND=107
+POWERLEVEL9K_VIRTUALENV_FOREGROUND='white'
+
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='cyan'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='white'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='red'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
+
 # Add a space in the first prompt
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
 # Visual customisation of the second prompt line
@@ -28,10 +43,9 @@ if [[ $(print -P "%#") =~ "#" ]]; then
     user_symbol = "#"
 fi
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
+
 # Add new line after each prompt
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-# Git status color
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=’red’
 
 ### Zsh autocompletion
 source $SCRIPTPATH/zsh_completion.sh

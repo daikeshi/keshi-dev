@@ -1,9 +1,3 @@
-### save path on cd
-function cd {
-    builtin cd $@
-    pwd > ~/.last_dir
-}
-
 # cd and ls
 function cl() {
     DIR="$*";

@@ -5,7 +5,8 @@ source $SCRIPTPATH/common_settings.sh
 
 ### oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="amuse"
+
 # plugins
 plugins=(
     git
@@ -13,39 +14,13 @@ plugins=(
     kubectl
     encode64
     virtualenv
+    emoji
+    kube-ps1
+    last-working-dir
 )
 # reload oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-###  POWERLEVEL9K customized settings
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs virtualenv time)
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
-
-POWERLEVEL9K_VIRTUALENV_BACKGROUND=107
-POWERLEVEL9K_VIRTUALENV_FOREGROUND='white'
-
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND='cyan'
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='white'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='red'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
-
-# Add a space in the first prompt
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
-# Visual customisation of the second prompt line
-local user_symbol="$"
-if [[ $(print -P "%#") =~ "#" ]]; then
-    user_symbol = "#"
-fi
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
-
-# Add new line after each prompt
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 ### Zsh autocompletion
 source $SCRIPTPATH/zsh_completion.sh
@@ -58,3 +33,28 @@ bindkey '^[[[CE' autosuggest-execute
 # brew install zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Override kube_ps1 fucntion 
+kube_ps1 () {
+  local reset_color="%{$reset_color%}"
+  [[ ${KUBE_PS1_ENABLED} != 'true' ]] && return
+
+  KUBE_PS1="${reset_color}$KUBE_PS1_PREFIX"
+  KUBE_PS1+="${KUBE_PS1_COLOR_SYMBOL}$(_kube_ps1_symbol)"
+  KUBE_PS1+="${reset_color}$KUBE_PS1_SEPERATOR"
+  KUBE_PS1_CONTEXT=`echo ${KUBE_PS1_CONTEXT} | sed 's/gke_//' | cut -d'_' -f1,3,4 | sed 's/_/|/g'`
+  KUBE_PS1+="${KUBE_PS1_COLOR_CONTEXT}$KUBE_PS1_CONTEXT${reset_color}"
+  KUBE_PS1+="$KUBE_PS1_DIVIDER"
+  KUBE_PS1+="${KUBE_PS1_COLOR_NS}$KUBE_PS1_NAMESPACE${reset_color}"
+  KUBE_PS1+="$KUBE_PS1_SUFFIX"
+
+  echo "${KUBE_PS1}"
+}
+
+### Amuse theme settings
+ZSH_THEME_VIRTUALENV_PREFIX="("
+ZSH_THEME_VIRTUALENV_SUFFIX=")"
+PROMPT='
+%{$fg[yellow]%}$(virtualenv_prompt_info)%{$reset_color%}% $emoji[ghost] %{$fg_bold[green]%}%(4~|%-2~/…/%2~|%3~)%{$reset_color%}$(git_prompt_info) $(random_emoji faces) %{$fg_bold[red]%}%*%{$reset_color%} $(kube_ps1)
+$ '
+KUBE_PS1_COLOR_CONTEXT="%F{green}"
+KUBE_PS1_SYMBOL_USE_IMG=true

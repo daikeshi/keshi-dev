@@ -11,7 +11,7 @@ source $SCRIPTPATH/functions.sh
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/bin
 # keshi
-export PATH=$PATH:$HOME/Lib/bin
+export PATH=$PATH:$HOME/Lib/bin:$HOME/bin
 export KESHI_DEV=$HOME/keshi-dev
 # java
 export JAVA_OPTS="-Xmx4096m"

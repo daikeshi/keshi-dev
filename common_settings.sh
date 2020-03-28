@@ -10,6 +10,7 @@ source $SCRIPTPATH/functions.sh
 # system
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/kubebuilder/bin
 # keshi
 export PATH=$PATH:$HOME/Lib/bin:$HOME/bin
 export KESHI_DEV=$HOME/keshi-dev
@@ -18,6 +19,7 @@ export JAVA_OPTS="-Xmx4096m"
 # sbt
 export SBT_OPTS='-Xms512m -Xmx2048m -XX:+CMSClassUnloadingEnabled'
 # go
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 
 ### Restore last saved path
@@ -28,4 +30,7 @@ fi
 ### Set history size
 HISTSIZE=5000
 HISTFILESIZE=5000
+
+### Use sys python virtual env
+source $HOME/.virtualenvs/sys/bin/activate
 

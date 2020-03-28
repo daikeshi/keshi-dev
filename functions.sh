@@ -26,10 +26,11 @@ function cd() {
   else
       ## check the current folder belong to earlier VIRTUAL_ENV folder
       # if yes then do nothing
-      # else deactivate
+      # else deactivate current virtualenv and activate sys virtualenv
       parentdir="$(dirname "$VIRTUAL_ENV")"
       if [[ "$PWD"/ != "$parentdir"/* ]] ; then
         deactivate
+        source $HOME/.virtualenvs/sys/bin/activate
       fi
   fi
 }

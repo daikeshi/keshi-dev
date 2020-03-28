@@ -30,5 +30,5 @@ alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
 ### kubectl
 alias k='kubectl'
-
+alias ktop="kubectl get nodes -o=jsonpath=\"{range .items[*]}{.metadata.name}{'\t'}{.status.allocatable.memory}{'\t'}{.status.allocatable.cpu}{'\n'}{end}\""
 

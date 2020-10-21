@@ -29,8 +29,8 @@ function cd() {
       # else deactivate current virtualenv and activate sys virtualenv
       parentdir="$(dirname "$VIRTUAL_ENV")"
       if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-        deactivate
-        source $HOME/.virtualenvs/sys/bin/activate
+        pyenv deactivate
+        pyenv activate sys
       fi
   fi
 }

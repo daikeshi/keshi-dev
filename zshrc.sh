@@ -66,3 +66,10 @@ if [ -f '/Users/keshi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keshi/goo
 if [ -f '/Users/keshi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/completion.zsh.inc'; fi
 
 export CLOUDSDK_PYTHON=$HOME/.virtualenvs/sys/bin/python
+
+### Config for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+pyenv activate sys

@@ -33,7 +33,7 @@ bindkey '^[[[CE' autosuggest-execute
 # brew install zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Override kube_ps1 fucntion 
+# Override kube_ps1 fucntion
 kube_ps1 () {
   local reset_color="%{$reset_color%}"
   [[ ${KUBE_PS1_ENABLED} != 'true' ]] && return
@@ -66,10 +66,3 @@ if [ -f '/Users/keshi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keshi/goo
 if [ -f '/Users/keshi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/completion.zsh.inc'; fi
 
 export CLOUDSDK_PYTHON=$HOME/.virtualenvs/sys/bin/python
-
-### Config for pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-pyenv activate sys

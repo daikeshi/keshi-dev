@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 ### Load generic bash config

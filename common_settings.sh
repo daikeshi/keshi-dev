@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 ### Load alias
@@ -9,15 +11,17 @@ source $SCRIPTPATH/functions.sh
 ### Env variables
 # system
 export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/kubebuilder/bin
 export PATH=$PATH:$HOME/google-cloud-sdk/bin
+# make sure /usr/local/bin occurs before /usr/bin for brew install
+export PATH=/usr/local/bin:$PATH
 
 # keshi
 export PATH=$PATH:$HOME/Lib/bin:$HOME/bin
 export KESHI_DEV=$HOME/keshi-dev
 # java
 export JAVA_OPTS="-Xmx4096m"
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 # sbt
 export SBT_OPTS='-Xms512m -Xmx2048m -XX:+CMSClassUnloadingEnabled'
 # go
@@ -40,11 +44,11 @@ HISTSIZE=5000
 HISTFILESIZE=5000
 
 ### Config for pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv virtualenv-init -)"
 pyenv activate sys
 
 ### Config gcloud path

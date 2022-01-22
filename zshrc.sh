@@ -36,8 +36,6 @@ bindkey '^ ' autosuggest-accept
 bindkey '^[[[CE' autosuggest-execute
 
 ### Zsh syntax highlighting
-# brew install zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Override kube_ps1 fucntion
 kube_ps1 () {
@@ -71,4 +69,3 @@ if [ -f '/Users/keshi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keshi/goo
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/keshi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/completion.zsh.inc'; fi
 
-export CLOUDSDK_PYTHON=$HOME/.virtualenvs/sys/bin/python

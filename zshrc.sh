@@ -2,6 +2,10 @@
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
+### homebrew setup
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 ### Load generic bash config
 source $SCRIPTPATH/common_settings.sh
 

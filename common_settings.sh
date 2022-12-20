@@ -47,9 +47,9 @@ HISTFILESIZE=5000
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.pyenv/shims:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-pyenv activate sys
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+# pyenv activate sys
 
 ### Config gcloud path
 # The next line updates PATH for the Google Cloud SDK.

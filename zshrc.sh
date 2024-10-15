@@ -71,3 +71,6 @@ if [ -f '/Users/keshi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kes
 
 ### gcloud config
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+### config conda
+export CONDA_PREFIX=$HOME/miniforge3

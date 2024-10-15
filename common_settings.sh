@@ -15,13 +15,14 @@ export PATH=$PATH:/usr/local/kubebuilder/bin
 export PATH=$PATH:$HOME/google-cloud-sdk/bin
 # make sure /usr/local/bin occurs before /usr/bin for brew install
 export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/.cargo/bin
 
 # keshi
 export PATH=$PATH:$HOME/Lib/bin:$HOME/bin
 export KESHI_DEV=$HOME/keshi-dev
 # java
 export JAVA_OPTS="-Xmx4096m"
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 # sbt
 export SBT_OPTS='-Xms512m -Xmx2048m -XX:+CMSClassUnloadingEnabled'
 # go
@@ -33,6 +34,8 @@ export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
 export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
 export PKG_CONFIG_PATH="/usr/local/opt/tcl-tk/lib/pkgconfig"
+# pip
+export PATH="$PATH:$HOME/.local/bin"
 
 ### Restore last saved path
 if [ -f ~/.last_dir ]

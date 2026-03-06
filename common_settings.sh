@@ -36,6 +36,8 @@ export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
 export PKG_CONFIG_PATH="/usr/local/opt/tcl-tk/lib/pkgconfig"
 # pip
 export PATH="$PATH:$HOME/.local/bin"
+# latex
+export PATH="$PATH:/usr/local/texlive/2025/bin/universal-darwin"
 
 ### Restore last saved path
 if [ -f ~/.last_dir ]
@@ -50,9 +52,12 @@ HISTFILESIZE=5000
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.pyenv/shims:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-# pyenv activate sys
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+# default env defined in ~/.pyenv/version
+# specific env for a folder defined in .python-version file
 
 ### Config gcloud path
 # The next line updates PATH for the Google Cloud SDK.

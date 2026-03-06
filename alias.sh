@@ -20,7 +20,7 @@ alias cg='cd `git rev-parse --show-toplevel`'
 alias startgit='cd `git rev-parse --show-toplevel` && git checkout master && git pull --rebase'
 
 ### mvim
-alias vim='mvim -v'
+# alias vim='mvim -v'
 
 ### Emacs
 alias es='/Applications/Emacs.app/Contents/MacOS/Emacs -nw --daemon'

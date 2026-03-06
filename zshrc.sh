@@ -65,9 +65,9 @@ KUBE_PS1_SYMBOL_USE_IMG=true
 
 ### Config gcloud path
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/keshi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '/Users/keshi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/keshi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '/Users/keshi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/completion.zsh.inc'; fi
 
 ### gcloud config
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True

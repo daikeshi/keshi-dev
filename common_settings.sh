@@ -21,8 +21,8 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/Lib/bin:$HOME/bin
 export KESHI_DEV=$HOME/keshi-dev
 # java
-export JAVA_OPTS="-Xmx4096m"
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+# export JAVA_OPTS="-Xmx4096m"
+# export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 # sbt
 export SBT_OPTS='-Xms512m -Xmx2048m -XX:+CMSClassUnloadingEnabled'
 # go
@@ -61,7 +61,7 @@ eval "$(pyenv virtualenv-init -)"
 
 ### Config gcloud path
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/keshi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/keshi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/keshi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/completion.zsh.inc'; fi
-export CLOUDSDK_PYTHON=$HOME/.pyenv/shims/python
+# if [ -f '/Users/keshi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keshi/google-cloud-sdk/completion.zsh.inc'; fi
+# export CLOUDSDK_PYTHON=$HOME/.pyenv/shims/python

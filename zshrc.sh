@@ -58,7 +58,7 @@ kube_ps1 () {
 ZSH_THEME_VIRTUALENV_PREFIX="("
 ZSH_THEME_VIRTUALENV_SUFFIX=")"
 PROMPT='
-%{$fg[yellow]%}(`basename $VIRTUAL_ENV`) %{$reset_color%}% $emoji[ghost] %{$fg_bold[green]%}%(4~|%-2~/…/%2~|%3~)%{$reset_color%}$(git_prompt_info) $(random_emoji faces) %{$fg_bold[red]%}%*%{$reset_color%} $(kube_ps1)
+%{$fg[yellow]%}${VIRTUAL_ENV:+(${VIRTUAL_ENV:t}) }%{$reset_color%}% $emoji[ghost] %{$fg_bold[green]%}%(4~|%-2~/…/%2~|%3~)%{$reset_color%}$(git_prompt_info) $(random_emoji faces) %{$fg_bold[red]%}%*%{$reset_color%} $(kube_ps1)
 $ '
 KUBE_PS1_COLOR_CONTEXT="%F{green}"
 KUBE_PS1_SYMBOL_USE_IMG=true

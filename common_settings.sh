@@ -35,13 +35,14 @@ HISTFILESIZE=5000
 SAVEHIST=5000
 
 # Homebrew provides pyenv; skip initialization until it is installed.
+# Rehash shims manually after installing new Python command-line tools.
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="${PYENV_ROOT:-$HOME/.pyenv}"
 if command -v pyenv >/dev/null 2>&1; then
     if [ -n "${ZSH_VERSION:-}" ]; then
-        eval "$(pyenv init - zsh)"
+        eval "$(pyenv init - --no-rehash zsh)"
     else
-        eval "$(pyenv init - bash)"
+        eval "$(pyenv init - --no-rehash bash)"
     fi
     if command -v pyenv-virtualenv-init >/dev/null 2>&1; then
         eval "$(pyenv virtualenv-init -)"

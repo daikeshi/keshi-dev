@@ -40,7 +40,7 @@ bindkey '^[[[CE' autosuggest-execute
 # Override kube_ps1 fucntion
 kube_ps1 () {
   local reset_color="%{$reset_color%}"
-  [[ ${KUBE_PS1_ENABLED} != 'true' ]] && return
+  [[ ${KUBE_PS1_ENABLED} == 'off' ]] && return
 
   KUBE_PS1="${reset_color}$KUBE_PS1_PREFIX"
   KUBE_PS1+="${KUBE_PS1_COLOR_SYMBOL}$(_kube_ps1_symbol)"
